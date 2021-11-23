@@ -1,5 +1,6 @@
 .Cell {
-  width: 1em;
-  height: 1em;
-  border: 1px solid white;
+  width: 18.45px;
+  height: 18.45px;
+  border: 0.1px solid rgba(199, 197, 197, 0.294);
+  transition: 1s;
 }
