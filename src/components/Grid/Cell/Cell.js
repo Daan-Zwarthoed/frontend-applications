@@ -28,16 +28,20 @@ function getNeighbours(target, randomColor) {
   newNeighboursArray = [];
   addElementOrNot(target.nextSibling, randomColor);
   addElementOrNot(target.previousSibling, randomColor);
-  addElementOrNot(
-    target.parentElement.nextSibling.children[target.className.split(" ")[0]],
-    randomColor
-  );
-  addElementOrNot(
-    target.parentElement.previousSibling.children[
-      target.className.split(" ")[0]
-    ],
-    randomColor
-  );
+  if (target.parentElement.nextSibling) {
+    addElementOrNot(
+      target.parentElement.nextSibling.children[target.className.split(" ")[0]],
+      randomColor
+    );
+  }
+  if (target.parentElement.previousSibling) {
+    addElementOrNot(
+      target.parentElement.previousSibling.children[
+        target.className.split(" ")[0]
+      ],
+      randomColor
+    );
+  }
   return newNeighboursArray;
 }
 
@@ -55,7 +59,6 @@ function clickEventStart(event) {
           nextNeighbours.push(...getNeighbours(element, hex2rgb(randomColor)));
         }
       });
-      console.log(nextNeighbours);
       neighbours = nextNeighbours;
       nextNeighbours = [];
     }, 100 * iGrowAmount);
