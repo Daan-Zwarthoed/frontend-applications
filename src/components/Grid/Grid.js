@@ -5,13 +5,17 @@ import Cell from "./Cell/Cell.js";
 let cellArray = [];
 let rowArray = [];
 
-for (let iWidth = 20; iWidth < window.innerWidth; iWidth = iWidth + 20) {
+for (let iWidth = 20; iWidth <= window.innerWidth - 40; iWidth = iWidth + 20) {
   cellArray.push(
     <Cell key={iWidth / 20 - 1} className={iWidth / 20 - 1}></Cell>
   );
 }
 
-for (let iHeight = 20; iHeight < window.innerHeight; iHeight = iHeight + 20) {
+for (
+  let iHeight = 20;
+  iHeight <= window.innerHeight - 40;
+  iHeight = iHeight + 20
+) {
   rowArray.push(
     <div key={iHeight / 20 - 1} className={`${iHeight / 20 - 1} row`}>
       {cellArray}

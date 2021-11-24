@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import "./Cell.css";
+import GridContext from "../../../contexts/gridContext";
 
 let chosenGrowAmount = 5;
 let newNeighboursArray = [];
@@ -65,8 +66,11 @@ function clickEventStart(event) {
   }
 }
 
-const Cell = ({ className }) => {
-  return <div className={`${className} Cell`} onClick={clickEventStart}></div>;
+const Cell = (props) => {
+  chosenGrowAmount = React.useContext(GridContext).chosenGrowAmount;
+  return (
+    <div className={`${props.className} Cell`} onClick={clickEventStart}></div>
+  );
 };
 
 Cell.propTypes = {};
