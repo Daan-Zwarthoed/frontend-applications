@@ -1,0 +1,64 @@
+[
+    {
+        "pattern": "zigzag",
+        "start": [
+            {
+                "path": "right",
+                "amount": 1,
+                "display": "none"
+            }
+        ],
+        "path": [
+            {
+                "path": "down",
+                "amount": 100
+            },
+            {
+                "path": "right",
+                "amount": 2,
+                "display": "none"
+            },
+            {
+                "path": "up",
+                "amount": 100
+            },
+            {
+                "path": "right",
+                "amount": 2,
+                "display": "none"
+            }
+        ]
+    },
+    {
+        "pattern": "diagonalZigzag",
+        "start": [
+            {
+                "path": "down",
+                "amount": 200,
+                "display": "none"
+            }
+        ],
+        "path": [
+            {
+                "path": "downRight",
+                "amount": 200
+            },
+            {
+                "path": "right",
+                "elsePath": "up",
+                "amount": 3,
+                "display": "none"
+            },
+            {
+                "path": "upLeft",
+                "amount": 200
+            },
+            {
+                "path": "up",
+                "elsePath": "right",
+                "amount": 3,
+                "display": "none"
+            }
+        ]
+    }
+]
