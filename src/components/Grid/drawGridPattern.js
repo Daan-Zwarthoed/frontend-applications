@@ -1,11 +1,13 @@
 let nextCell;
 
+// Clears the pattern you had last
 function clearPattern() {
   document.querySelectorAll(".patternLine").forEach((element) => {
     element.classList.remove("patternLine");
   });
 }
 
+// Takes a direction from the last cell and returns the cell that is in that direction
 function returnNextCell(path) {
   switch (path) {
     case "right":
@@ -55,6 +57,7 @@ function returnNextCell(path) {
   }
 }
 
+// Check the return of the next cell if that doesnt exist checks if you gave an alternative path
 function returnNextCellActivator(step) {
   const returntedNextCell = returnNextCell(step.path);
   if (returntedNextCell) {
@@ -64,6 +67,7 @@ function returnNextCellActivator(step) {
   }
 }
 
+// This function contains the loop for making the patterns posible
 function nextCellActivator(patternStartOrPath, doRepeat) {
   let patternDone = false;
   for (let iPatternRepeat = 0; iPatternRepeat < 1000; iPatternRepeat++) {
@@ -88,6 +92,7 @@ function nextCellActivator(patternStartOrPath, doRepeat) {
   }
 }
 
+// Takes the chosen pattern and activates the function neccasery for making it happen
 export default function drawPattern(chosenPattern, patternJSON) {
   clearPattern();
   nextCell = document.querySelector(".Grid").children[0].children[0];
