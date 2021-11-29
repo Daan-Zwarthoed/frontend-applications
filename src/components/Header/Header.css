@@ -1,3 +1,19 @@
 .Header {
   height: 40px;
+  display: flex;
+  align-items: center;
+}
+
+.Header input,
+.Header select {
+  margin-left: 0.2em;
+  margin-right: 1em;
+}
+
+.Header input {
+  width: 4em;
+}
+
+.Header select {
+  width: 6em;
 }

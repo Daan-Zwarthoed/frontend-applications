@@ -11,7 +11,7 @@
         "path": [
             {
                 "path": "down",
-                "amount": 100
+                "amount": 1000
             },
             {
                 "path": "right",
@@ -20,7 +20,7 @@
             },
             {
                 "path": "up",
-                "amount": 100
+                "amount": 1000
             },
             {
                 "path": "right",
@@ -34,14 +34,14 @@
         "start": [
             {
                 "path": "down",
-                "amount": 200,
+                "amount": 1000,
                 "display": "none"
             }
         ],
         "path": [
             {
                 "path": "downRight",
-                "amount": 200
+                "amount": 1000
             },
             {
                 "path": "right",
@@ -51,7 +51,7 @@
             },
             {
                 "path": "upLeft",
-                "amount": 200
+                "amount": 1000
             },
             {
                 "path": "up",

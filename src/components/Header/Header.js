@@ -5,25 +5,23 @@ import GridContext from "../../contexts/gridContext";
 
 const Header = () => {
   const { setChosenGrowAmount } = React.useContext(GridContext)[0];
-  const chosenGrowAmountChangeHandler = (event) =>
-    setChosenGrowAmount(event.target.value);
-
   const { setChosenPattern } = React.useContext(GridContext)[1];
-  const chosenPatternChangeHandler = (event) => {
-    setChosenPattern(event.target.value);
-  };
   return (
     <div className="Header">
+      <label for="chosenGrowAmount">Grow amount:</label>
       <input
         type="number"
         defaultValue="5"
-        onChange={chosenGrowAmountChangeHandler}
+        onChange={(event) => setChosenGrowAmount(event.target.value)}
       ></input>
       <label for="patterns">Pattern:</label>
-      <select name="patterns" onChange={chosenPatternChangeHandler}>
+      <select
+        name="patterns"
+        onChange={(event) => setChosenPattern(event.target.value)}
+      >
         <option value="zigzag">Zig zag</option>
         <option value="diagonalZigzag">Diagonal zig zag</option>
-        <option value="none">none</option>
+        <option value="none">None</option>
       </select>
     </div>
   );

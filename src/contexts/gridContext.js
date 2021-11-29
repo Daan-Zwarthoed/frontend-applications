@@ -9,7 +9,7 @@ function fakeCall() {
 export const GridContextProvider = ({ children }) => {
   const [chosenGrowAmount, setChosenGrowAmount] = React.useState(5);
   const [chosenPattern, setChosenPattern] = React.useState("zigzag");
-  const [patternJSON, setPatternJSON] = React.useState(fakeCall());
+  const patternJSON = fakeCall();
 
   const chosenGrowAmountObject = React.useMemo(
     () => ({ chosenGrowAmount, setChosenGrowAmount }),
@@ -21,14 +21,9 @@ export const GridContextProvider = ({ children }) => {
     [chosenPattern]
   );
 
-  const patternJSONImported = React.useMemo(
-    () => ({ patternJSON, setPatternJSON }),
-    [patternJSON]
-  );
-
   return (
     <GridContext.Provider
-      value={[chosenGrowAmountObject, chosenPatternObject, patternJSONImported]}
+      value={[chosenGrowAmountObject, chosenPatternObject, patternJSON]}
     >
       {children}
     </GridContext.Provider>
