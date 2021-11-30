@@ -8,13 +8,14 @@ let chosenMode = "bubble";
 let newNeighboursArray = [];
 const transitioningElementsArray = [];
 
-// Takes hex code and returns rgb
-const hex2rgb = (hex) => {
-  const r = parseInt(hex.slice(1, 3), 16);
-  const g = parseInt(hex.slice(3, 5), 16);
-  const b = parseInt(hex.slice(5, 7), 16);
+function randomRGB() {
+  const randomBetween = (min, max) =>
+    min + Math.floor(Math.random() * (max - min + 1));
+  const r = randomBetween(0, 255);
+  const g = randomBetween(0, 255);
+  const b = randomBetween(0, 255);
   return `rgb(${r}, ${g}, ${b})`;
-};
+}
 
 function addElementOrNot(element, randomColor) {
   if (element) {
@@ -66,8 +67,8 @@ function clickEventStart(event) {
   } else {
     let neighbours = getNeighbours(event.target);
     let nextNeighbours = [];
-    let randomColor = `#${Math.floor(Math.random() * 16777215).toString(16)}`;
-    transitioningElementsArray.push(hex2rgb(randomColor));
+    let randomColor = randomRGB();
+    transitioningElementsArray.push(randomColor);
     if (transitioningElementsArray.includes(event.target.style.backgroundColor))
       transitioningElementsArray.splice(event.target.style.backgroundColor, 1);
 
@@ -81,15 +82,13 @@ function clickEventStart(event) {
       setTimeout(() => {
         neighbours.forEach((element) => {
           if (element) {
-            nextNeighbours.push(
-              ...getNeighbours(element, hex2rgb(randomColor))
-            );
+            nextNeighbours.push(...getNeighbours(element, randomColor));
           }
         });
         neighbours = nextNeighbours;
         nextNeighbours = [];
         if (iGrowAmount === chosenGrowAmount - 1) {
-          transitioningElementsArray.splice(hex2rgb(randomColor), 1);
+          transitioningElementsArray.splice(randomColor, 1);
         }
       }, 50 * iGrowAmount);
     }
