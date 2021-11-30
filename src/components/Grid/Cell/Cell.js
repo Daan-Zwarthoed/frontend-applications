@@ -5,7 +5,7 @@ import GridContext from "../../../contexts/gridContext";
 
 let chosenGrowAmount = 5;
 let chosenMode = "bubble";
-let newNeighboursArray = [];
+const newNeighboursArray = [];
 const transitioningElementsArray = [];
 
 // Returns a random rgb
@@ -68,12 +68,12 @@ function clickEventStart(event) {
   if (chosenMode === "pattern") {
     event.target.classList.toggle("patternLine");
   } else {
-    let neighbours = getNeighbours(event.target);
-    let nextNeighbours = [];
-    let randomColor = randomRGB();
+    const randomColor = randomRGB();
     transitioningElementsArray.push(randomColor);
     if (transitioningElementsArray.includes(event.target.style.backgroundColor))
       transitioningElementsArray.splice(event.target.style.backgroundColor, 1);
+    let neighbours = getNeighbours(event.target);
+    let nextNeighbours = [];
 
     // Changes clicked targets color
     if (!event.target.classList.contains("patternLine"))
