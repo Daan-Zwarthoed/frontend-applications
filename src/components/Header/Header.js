@@ -6,15 +6,17 @@ import GridContext from "../../contexts/gridContext";
 const Header = () => {
   const { setChosenGrowAmount } = React.useContext(GridContext)[0];
   const { setChosenPattern } = React.useContext(GridContext)[1];
+  const { setChosenMode } = React.useContext(GridContext)[2];
   return (
     <div className="Header">
-      <label for="chosenGrowAmount">Grow amount:</label>
+      <label htmlFor="chosenGrowAmount">Grow amount:</label>
       <input
         type="number"
         defaultValue="5"
         onChange={(event) => setChosenGrowAmount(event.target.value)}
       ></input>
-      <label for="patterns">Pattern:</label>
+
+      <label htmlFor="patterns">Pattern:</label>
       <select
         name="patterns"
         onChange={(event) => setChosenPattern(event.target.value)}
@@ -23,6 +25,21 @@ const Header = () => {
         <option value="diagonalZigzag">Diagonal zig zag</option>
         <option value="none">None</option>
       </select>
+
+      <div className="bubbleOrPattern">
+        <p>Bubble</p>
+        <label className="switch">
+          <input
+            id="bubbleOrPatternCheckbox"
+            type="checkbox"
+            onChange={(event) =>
+              setChosenMode(event.target.checked ? "pattern" : "bubble")
+            }
+          />
+          <span></span>
+        </label>
+        <p>Pattern</p>
+      </div>
     </div>
   );
 };

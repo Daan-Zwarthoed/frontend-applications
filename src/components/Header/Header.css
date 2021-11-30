@@ -17,3 +17,39 @@
 .Header select {
   width: 6em;
 }
+
+.Header .bubbleOrPattern {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 0.5em;
+}
+
+.switch {
+  width: 40px;
+  height: 20px;
+  background-color: grey;
+  position: relative;
+  margin-left: 0.1em;
+  margin-right: 0.1em;
+}
+
+.switch > span {
+  height: 20px;
+  width: 20px;
+  background-color: black;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: 0.5s;
+}
+
+.switch > input:checked + span {
+  left: 100% !important;
+  transform: translateX(-100%);
+  background-color: dodgerblue !important;
+}
+
+.switch > input {
+  opacity: 0;
+}
