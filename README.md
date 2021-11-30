@@ -1,6 +1,16 @@
 # frontend-data
 
+### Live build
+
+https://frontend-spplications-daan.herokuapp.com/
+
 ### Concept
+
+I made something cool... 
+
+This app makes a grid in which you can load a pattern to grow a bubble around said pattern. You can also make your own pattern and can control the size of the bubble.
+
+![test](https://github.com/Daan-Zwarthoed/frontend-applications/blob/main/public/conceptPicture.jpeg)
 
 ### Installation
 
