@@ -5,7 +5,7 @@ import GridContext from "../../../contexts/gridContext";
 
 let chosenGrowAmount = 5;
 let chosenMode = "bubble";
-const newNeighboursArray = [];
+let newNeighboursArray = [];
 const transitioningElementsArray = [];
 
 // Returns a random rgb
