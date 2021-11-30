@@ -9,6 +9,7 @@ let newNeighboursArray = [];
 const transitioningElementsArray = [];
 
 // Returns a random rgb
+// https://stackoverflow.com/questions/23095637/how-do-you-get-random-rgb-in-javascript
 function randomRGB() {
   const randomBetween = (min, max) =>
     min + Math.floor(Math.random() * (max - min + 1));
