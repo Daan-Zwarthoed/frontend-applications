@@ -30,6 +30,7 @@ for (
 }
 
 const Grid = () => {
+  // Takes the chosenpattern and the json file and makes the chosen pattern
   const { chosenPattern } = React.useContext(GridContext)[1];
   const patternJSON = React.useContext(GridContext)[3];
   React.useEffect(() => {

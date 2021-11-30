@@ -8,6 +8,7 @@ let chosenMode = "bubble";
 let newNeighboursArray = [];
 const transitioningElementsArray = [];
 
+// Returns a random rgb
 function randomRGB() {
   const randomBetween = (min, max) =>
     min + Math.floor(Math.random() * (max - min + 1));
@@ -17,6 +18,7 @@ function randomRGB() {
   return `rgb(${r}, ${g}, ${b})`;
 }
 
+// All the checks if the element should be added or not
 function addElementOrNot(element, randomColor) {
   if (element) {
     if (

@@ -9,6 +9,7 @@ const Header = () => {
   const { setChosenMode } = React.useContext(GridContext)[2];
   return (
     <div className="Header">
+      {/* Chose the amount you want the square to grow */}
       <label htmlFor="chosenGrowAmount">Grow amount:</label>
       <input
         type="number"
@@ -16,6 +17,7 @@ const Header = () => {
         onChange={(event) => setChosenGrowAmount(event.target.value)}
       ></input>
 
+      {/* Choose the pattern you want displayed */}
       <label htmlFor="patterns">Pattern:</label>
       <select
         name="patterns"
@@ -26,6 +28,7 @@ const Header = () => {
         <option value="none">None</option>
       </select>
 
+      {/* Choose between bubble or pattern */}
       <div className="bubbleOrPattern">
         <p>Bubble</p>
         <label className="switch">
