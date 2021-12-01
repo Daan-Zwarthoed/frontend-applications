@@ -29,12 +29,12 @@ export const GridContextProvider = ({ children }) => {
 
   return (
     <GridContext.Provider
-      value={[
+      value={{
         chosenGrowAmountObject,
         chosenPatternObject,
         chosenModeObject,
         patternJSON,
-      ]}
+      }}
     >
       {children}
     </GridContext.Provider>

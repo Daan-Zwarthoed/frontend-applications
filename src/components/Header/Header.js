@@ -4,9 +4,11 @@ import "./Header.css";
 import GridContext from "../../contexts/gridContext";
 
 const Header = () => {
-  const { setChosenGrowAmount } = React.useContext(GridContext)[0];
-  const { setChosenPattern } = React.useContext(GridContext)[1];
-  const { setChosenMode } = React.useContext(GridContext)[2];
+  const { setChosenGrowAmount } =
+    React.useContext(GridContext).chosenGrowAmountObject;
+  const { setChosenPattern } =
+    React.useContext(GridContext).chosenPatternObject;
+  const { setChosenMode } = React.useContext(GridContext).chosenModeObject;
   return (
     <div className="Header">
       {/* Chose the amount you want the square to grow */}

@@ -69,14 +69,17 @@ function clickEventStart(event) {
     event.target.classList.toggle("patternLine");
   } else {
     const randomColor = randomRGB();
-    transitioningElementsArray.push(randomColor);
     if (transitioningElementsArray.includes(event.target.style.backgroundColor))
       transitioningElementsArray.splice(event.target.style.backgroundColor, 1);
+    transitioningElementsArray.push(randomColor);
     let neighbours = getNeighbours(event.target);
     let nextNeighbours = [];
 
     // Changes clicked targets color
-    if (!event.target.classList.contains("patternLine"))
+    if (
+      !event.target.classList.contains("patternLine") &&
+      !transitioningElementsArray.includes(event.target.style.backgroundColor)
+    )
       event.target.style.backgroundColor = randomColor;
 
     for (let iGrowAmount = 0; iGrowAmount < chosenGrowAmount; iGrowAmount++) {
@@ -90,7 +93,7 @@ function clickEventStart(event) {
         });
         neighbours = nextNeighbours;
         nextNeighbours = [];
-        if (iGrowAmount === chosenGrowAmount - 1) {
+        if (iGrowAmount === chosenGrowAmount - 1 || !neighbours[0]) {
           transitioningElementsArray.splice(randomColor, 1);
         }
       }, 50 * iGrowAmount);
@@ -99,8 +102,9 @@ function clickEventStart(event) {
 }
 
 const Cell = (props) => {
-  chosenGrowAmount = React.useContext(GridContext)[0].chosenGrowAmount;
-  chosenMode = React.useContext(GridContext)[2].chosenMode;
+  chosenGrowAmount =
+    React.useContext(GridContext).chosenGrowAmountObject.chosenGrowAmount;
+  chosenMode = React.useContext(GridContext).chosenModeObject.chosenMode;
   return (
     <div className={`${props.className} Cell`} onClick={clickEventStart}></div>
   );
